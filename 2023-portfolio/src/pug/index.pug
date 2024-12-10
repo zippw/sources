@@ -1,0 +1,35 @@
+extends _includes/layout
+
+block vars
+    -const title = 'Portfolio';
+    -const page = 'main';
+    -const description = 'Looking for a skilled and experienced web developer? Look no further! My portfolio website showcases some of my best work and highlights my expertise in all aspects of web development. Let\'s work together to create something amazing!';
+    -const site_title = 'My Portfolio Showcase';
+
+block content
+    include ./_includes/preloader
+    include ./_includes/nav
+    #popout
+        .bg_sep
+        .popout__content
+            .progress
+            button.close.no-select
+                include ./svg/remove.svg
+            .main
+                h1(data-jelly) CONFIDENTIALITY NOTICE
+                p(data-jelly) This message and any attachments are intended solely for the individual or entity to which it is addressed and may contain confidential and/or privileged information. If you have received this message in error, please notify the sender immediately and delete all copies of the message and attachments. 
+                p(data-jelly) The information entered into the form on this website, including name, email address, and message content, will be kept confidential and will only be used for the purpose of responding to the message sent by the user. This information will not be shared with any third parties without the user's express consent, except where required by law.
+                p(data-jelly) By submitting the form on this website, the user acknowledges that their personal data will be collected and processed in accordance with applicable data protection laws. The creator of this website is committed to protecting the privacy and confidentiality of all users, and will take all necessary measures to ensure the security and integrity of the user's personal data.
+    .notifications
+    .scroller(data-scrollbar)
+        include ./_includes/display
+        include ./_includes/skills
+        include ./_includes/bio
+        include ./_includes/production
+        include ./_includes/portfolio
+        include ./_includes/stats
+        include ./_includes/philosophy
+        include ./_includes/faq
+        include ./_includes/work
+
+    script(src='assets/js/index.js?v=' + PACKAGE.version, defer)

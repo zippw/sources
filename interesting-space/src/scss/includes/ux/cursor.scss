@@ -1,0 +1,207 @@
+$mf-color-base: #000 !default;
+$mf-color-text: #fff !default;
+
+.cursor-big {
+    $root: &;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 251;
+
+    direction: ltr;
+    contain: layout style size;
+    pointer-events: none;
+
+    transition: opacity 0.3s, color 0.4s;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: -24px;
+        left: -24px;
+        display: block;
+        width: 48px;
+        height: 48px;
+        transform: scale(0);
+
+        background: currentColor;
+        border-radius: 50%;
+
+        transition: transform 0.25s ease-in-out, opacity 0.1s;
+    }
+
+    .cursor-progress {
+        position: absolute;
+        height: 48px;
+        width: 48px;
+        top: -24px;
+        left: -24px;
+        display: block;
+        border-radius: 50px;
+        opacity: 1;
+        z-index: 10000;
+        background: transparent;
+        border: 4px solid $muted1;
+        transition: opacity .2s;
+
+        svg {
+            path {
+                fill: none;
+            }
+
+            &.progress-circle path {
+                stroke: $text1;
+                stroke-width: 4;
+                box-sizing: border-box;
+            }
+        }
+    }
+
+    &.-exclusion {
+        @supports (mix-blend-mode:exclusion) {
+            mix-blend-mode: exclusion;
+
+            &:before {
+                background: invert($mf-color-base);
+                transform: scale(1);
+            }
+
+            .cursor-progress {
+                opacity: 0;
+            }
+        }
+    }
+
+    &.-hidden {
+        &:before {
+            transform: scale(0);
+        }
+
+        .cursor-progress {
+            opacity: 0;
+        }
+    }
+}
+
+.cursor {
+    $root: &;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 250;
+
+    direction: ltr;
+    contain: layout style size;
+    pointer-events: none;
+
+    transition: opacity 0.3s, color 0.4s;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: -24px;
+        left: -24px;
+        display: block;
+        width: 48px;
+        height: 48px;
+        transform: scale(0.2);
+
+        background: currentColor;
+        border-radius: 50%;
+
+        transition: transform 0.25s ease-in-out, opacity 0.1s;
+    }
+
+    &.-footerlogo {
+        &:before {
+            transform: scale(.85)
+        }
+    }
+
+    &.-exclusion {
+        @supports (mix-blend-mode:exclusion) {
+            mix-blend-mode: exclusion;
+
+            &:before {
+                background: invert($mf-color-base);
+            }
+        }
+    }
+
+    &.-pointer {
+        &:before {
+            transform: scale(0.30);
+        }
+    }
+
+    &.-hidden {
+        &:before {
+            transform: scale(0);
+        }
+    }
+}
+
+.macos-cursor {
+    $root: &;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 250;
+
+    direction: ltr;
+    contain: layout style size;
+    pointer-events: none;
+    z-index: 999999;
+
+    transition: opacity 0.3s, color 0.4s;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: -24px;
+        left: -24px;
+        display: block;
+        width: 48px;
+        height: 48px;
+        transform: scale(0.3);
+
+        border-radius: 50%;
+
+        transition: transform 0.25s ease-in-out, opacity 0.1s;
+    }
+
+    &.-hidden {
+        &:before {
+            transform: scale(0);
+        }
+
+        &.-active:before {
+            transform: scale(0)!important
+        }
+    }
+
+    &-text {
+        position: absolute;
+        top: -4px;
+        left: -8px;
+        width: 36px;
+        height: 36px;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        transform: scale(1);
+        // opacity: 0;
+        color: var(--bg);
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+        .icon {
+            background: blue
+        }
+    }
+}

@@ -1,0 +1,11 @@
+- const logic = page != "Home" == true
+
+if logic
+    nav.return
+        a.hc.back__button(onclick="window.history.back()" data-magnetic data-cursor-stick data-cursor="-backOut -pointer_big")
+            include ../svg/arrow-left.svg
+            span.no-select Back
+nav.navbar
+    .menu__checkbox
+        input.menu#side_menu(type="checkbox")
+        label.hc(for="side_menu" data-magnetic data-cursor-stick data-cursor="-backOut -pointer_big")

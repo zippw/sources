@@ -1,0 +1,8 @@
+-const li = ["Posts", "Winged Light"]
+nav.sections
+    .bar__container
+        span.track
+        span.thumb
+    ul
+        each sec, i in li
+            li.hc.no-select(id=`anch_${i + 1}` onclick="scrollToSection(this)" data-section=(i + 1) tabindex="-1" data-cursor-stick class=(i == 0 ? "here" : ""))=sec

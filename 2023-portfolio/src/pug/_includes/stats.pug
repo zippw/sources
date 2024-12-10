@@ -1,0 +1,17 @@
+section.stats.st-fade-group(data-fade=`[{"opacity":0},{"opacity":1}]`)
+    .stats__description
+        .txt.st-fade-child
+            h1 This GitHub commit graph
+            p is a visual representation of my passion for coding and my drive to create innovative web design solutions. With each commit, I strive to push the limits and challenge myself to become a better developer. Explore my Github profile to see the exciting projects I've been working on!
+        .figure.st-fade-child
+            include ../svg/circles.svg
+            +link("Go to Github page", "github.com/zippw")
+    .stats__wrapper
+        .details.st-fade-child
+            -const txt = "Average number of commits / week"
+            h3(data-text=txt)=txt
+            h1.count
+            .abs_ico
+                //- include ../svg/calendar.svg
+        .graph.st-fade-child
+            canvas#contribution

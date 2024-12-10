@@ -1,0 +1,34 @@
+block vars
+doctype html
+html(lang="en" data-theme="dark")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover")
+        title=title
+        link(rel="stylesheet" href="assets/css/style.css?v=" + PACKAGE.version)
+        //- favicon
+        link(rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png?v=" + PACKAGE.version)
+        link(rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png?v=" + PACKAGE.version)
+        link(rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png?v=" + PACKAGE.version)
+        link(rel="manifest" href="img/favicon/site.webmanifest?v=" + PACKAGE.version)
+        link(rel="mask-icon" href="img/favicon/safari-pinned-tab.svg?v=" + PACKAGE.version color="#211f2d")
+        meta(name="msapplication-TileColor" content="#211f2d")
+        meta(name="theme-color" content="#211f2d")
+
+        meta(name="title" content=site_title || title)
+        meta(name="description" content=description || 'default')
+        meta(property="og:site_name" content='Building Innovative Websites:')
+        meta(property="og:type" content="website")
+        meta(property="og:url" content=`https://${DOMAIN}/`)
+        meta(property="og:title" content=site_title || title)
+        meta(property="og:description" content=description || 'default')
+        meta(property="og:image" content=`https://${DOMAIN}/img/art.jpg`)
+        meta(property="twitter:url" content=`https://${DOMAIN}/`)
+        meta(property="twitter:title" content=site_title || title)
+        meta(property="twitter:description" content=description || 'default')
+        meta(property="twitter:image" content=`https://${DOMAIN}/img/art.jpg`)
+    body.no-scrollbar(data-barba="wrapper" data-theme="light" v-scrollbar)
+        script.
+            const env_path = "#{API}";
+        block content

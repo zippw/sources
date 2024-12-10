@@ -1,0 +1,100 @@
+.preloader {
+    position: fixed;
+    background: var(--bg_light);
+    width: 100%;
+    height: 100dvh;
+    z-index: 9999;
+
+    .window {
+        position: absolute;
+        top: 0;
+        left: 0;
+        aspect-ratio: 1 / 1;
+        max-width: calc(100dvh - 160px);
+        width: fit-content;
+        height: fit-content;
+        transform: translate(80px, 80px);
+        overflow: hidden;
+        z-index: 2;
+
+        img {
+            position: relative;
+            width: fit-content;
+            height: 100%;
+        }
+    }
+
+    .content {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        position: relative;
+        flex-direction: column;
+        padding: 0 var(--pdg) var(--pdg) 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+
+        h2 {
+            padding-right: 1.75rem;
+            font-size: 1.75rem;
+            font-weight: 200;
+            line-height: 100%;
+            overflow: hidden;
+
+            span {
+                align-items: center;
+                display: flex;
+                justify-content: center
+            }
+
+            img {
+                height: 30px;
+                margin-left: 15px;
+            }
+        }
+
+        h1 {
+            font-size: 13rem;
+            @include syne;
+            font-weight: 900;
+            text-align: right;
+            line-height: 100%;
+            mix-blend-mode: difference;
+            font-variant-numeric: lining-nums;
+            overflow: hidden;
+
+            span {
+                display: inline-block;
+            }
+        }
+    }
+
+    &.opened {
+        background-color: transparent;
+        transition: background-color 1s 1s;
+
+        .content span {
+            transform: translateY(-101%);
+            transition: transform 1s $wavy
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        .window {
+            max-width: calc(100% - 40px);
+            transform: translate(20px, 20px);
+        }
+
+        .content {
+            h2 {
+                padding-right: 4vw;
+                font-size: 4vw;
+            }
+
+            h1 {
+                font-size: 20vw;
+            }
+        }
+    }
+}

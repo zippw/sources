@@ -1,0 +1,69 @@
+@import 'includes/util/easings.scss';
+@import 'includes/util/vars.scss';
+@import 'includes/util/fonts.scss';
+@import "includes/ui/nav.scss";
+@import "includes/util/default.scss";
+
+html {
+    position: relative;
+    font-size: 16px;
+    height: 100%;
+
+    button {
+        border: unset;
+        background: unset;
+        color: unset;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        margin: 0;
+    }
+}
+
+body {
+    position: relative;
+    background-color: var(--dynamic, var(--bg));
+    color: var(--text);
+    @include satoshi;
+    margin: 0;
+    margin-top: -env(safe-area-inset-top);
+    overflow: hidden;
+    transition: $dynamicTransition;
+    &.-purple {
+        background-color: var(--purple_light, var(--bg));
+    }
+}
+
+main {
+    overflow: hidden;
+}
+
+@import "includes/display.scss"; // done for now
+@import "includes/skills.scss"; // done
+@import "includes/bio.scss"; // done
+@import "includes/production.scss"; // done
+@import "includes/portfolio.scss"; // done
+@import "includes/stats.scss"; // done
+@import "includes/philosophy.scss"; // done
+@import "includes/faq.scss"; // done
+@import "includes/work.scss"; // done
+@import "includes/footer.scss";
+
+@import "includes/ui/scrollbar.scss";
+@import "includes/ui/btn.scss";
+@import "includes/ui/sep.scss";
+@import "includes/util/native.scss";
+@import "includes/ui/preloader.scss";
+@import 'includes/ui/notify.scss';
+@import 'includes/ui/popout.scss';
+// @import "includes/ui/cursor.scss"

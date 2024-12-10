@@ -1,0 +1,20 @@
+extends _includes/layout
+
+block vars
+    -const title = 'Valeriy Zippw.';
+    -const author = "Valeriy Zippw.";
+    -const description = 'On this web page, you can navigate between current and past portfolio projects';
+    -const site_title = 'Portfolio Collection';
+
+block content
+    script.
+        const
+            langs = "#{renderLocales}".split(","),
+            userLang = navigator.language,
+            lang = userLang?.slice(0, 2);
+
+        if(langs.includes(lang)) {
+            window.location.href = `/${lang}/`;
+        } else {
+            window.location.href = `/en/`;
+        }

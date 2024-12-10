@@ -1,0 +1,53 @@
+$text: #000000;
+$text_secondary: #666666;
+$blue: rgb(131, 131, 228);
+$red: rgb(245, 132, 132);
+$bg: rgb(255, 230, 230);
+$bg2: rgb(202, 238, 255);
+
+$d_text: #ffffff;
+$d_text_secondary: #adadad;
+$d_bg: #17171a;
+$d_bg2: #000116;
+
+html {
+    --text: #{$text};
+    --text_secondary: #{$text_secondary};
+    --bg: #{$bg};
+    --block: #{darken($bg, 3%)};
+    --bg2: #{$bg2};
+    --red: #{$red};
+    --blue: #{$blue};
+    --card_color: #{darken($bg, 10%)};
+    --transparentize_bg_05: #{transparentize($bg, .5)};
+    --transparentize_blue_08: #{transparentize($blue, .8)};
+    --transparentize_red_08: #{transparentize($red, .8)};
+    --transparentize_text_secondary_08: #{transparentize($text_secondary, .8)};
+    --transparentize_text_secondary_09: #{transparentize($text_secondary, .9)};
+    --transparentize_text_05: #{transparentize($text, .5)};
+}
+
+html[data-theme='dark'] {
+    --text: #{$d_text}!important;
+    --text_secondary: #{$d_text_secondary}!important;
+    --bg: #{$d_bg}!important;
+    --block: #{lighten($d_bg, 3%)};
+    --red: #{$red};
+    --blue: #{$blue};
+    --card_color: #{lighten($d_bg, 10%)};
+    --bg2: #{$d_bg2}!important;
+    --transparentize_bg_05: #{transparentize($d_bg, .5)};
+    --transparentize_blue_08: #{transparentize($blue, .8)};
+    --transparentize_red_08: #{transparentize($red, .8)};
+    --transparentize_text_secondary_08: #{transparentize($d_text_secondary, .8)};
+    --transparentize_text_secondary_09: #{transparentize($text_secondary, .9)};
+    --transparentize_text_05: #{transparentize($d_text, .5)};
+}
+
+html {
+    --g_padding: 100px;
+    --n_padding: 50px;
+    --pdg_multiplier: 2;
+
+    --text-readable: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}

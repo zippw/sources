@@ -1,0 +1,54 @@
+section.info#section_1(data-bgcolor="var(--bg)")
+    .home
+        .greetings
+            .first__greet
+                p Welcome to
+                h1 Sky Tools!
+            .second__greet
+                .scroll-down
+                    p Scroll or press#[br]
+                        span
+                            kbd 1
+                            kbd 2
+                            kbd 3
+                        | . . .
+                    //- .mouse(onclick="scrollDown()" data-magnetic data-cursor-img="img/arrow-down.svg" data-cursor="-lg -backOut")
+                    .mouse.hc(onclick="scrollDown()" data-magnetic data-cursor-stick data-cursor-text="Scroll down" data-cursor="-lg -backOut")
+                        .mouse_btn
+        .posts
+            .posts__container
+                .title(h-scrollbar)
+                    label.posts__task__radio.chosen(for="posts_radio" data-cursor-stick)
+                        em Last posts
+                        input#posts_radio(type="radio" name="posts_tasks")
+                    label.posts__task__radio(for="tasks_radio" data-cursor-stick)
+                        em Tasks
+                        input#tasks_radio(type="radio" name="posts_tasks")
+                //- .shadow
+                .list.tasks__content(style="display: none")
+                    .post
+                        .img__container
+                            .type__container
+                                img.type(src="img/g_assets/tasks/compass.webm", alt="")
+                            img.head(src="img/istochnik.png" alt="")
+                        .text Visit the hot spring in Dream Village
+                    .post
+                        .img__container
+                            .type__container
+                                img.type(src="img/g_assets/tasks/players.webm", alt="")
+                            img.head(src="img/istochnik.png" alt="")
+                        .text Visit the hot spring in Dream Village
+                    .post
+                        .img__container
+                            .type__container
+                                img.type(src="img/g_assets/tasks/flame.webm", alt="")
+                            img.head(src="img/istochnik.png" alt="")
+                        .text Relive a Spirit's memories in Praire
+                    .post
+                        .img__container
+                            .type__container
+                                img.type(src="img/g_assets/tasks/players.webm", alt="")
+                            img.head(src="img/istochnik.png" alt="")
+                        .text Visit the hot spring in Dream Village
+                .list.posts__content(v-scrollbar data-overflow-locomative)
+                    img.preloader__posts(src="https://cdn.discordapp.com/emojis/630236290662662145.gif?size=64")

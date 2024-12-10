@@ -1,0 +1,22 @@
+section.philosophy
+    .zw-philosophy
+        //- <svg class="separator separator--up" width="100%" height="100%" viewBox="0 0 100 10" preserveAspectRatio="none">
+        //-     <path class="separator__path path-anim" data-path-to="M 0 0 C 40 10 60 10 100 0 L 0 0 Z" vector-effect="non-scaling-stroke" d="M 0 0 C 40 0 60 0 100 0 L 0 0 Z" />
+        //- </svg>
+        //- <svg class="separator separator--down" width="100%" height="100%" viewBox="0 0 100 10" preserveAspectRatio="none">
+        //-     <path class="separator__path path-anim" data-path-to="M 0 0 C 25 13 75 13 100 0 L 100 10 H 0 Z" vector-effect="non-scaling-stroke" d="M 0 0 C 40 0 60 0 100 0 L 100 10 H 0 Z" />
+        //- </svg>
+        //- <svg xmlns="http://www.w3.org/2000/svg" width="10" height="100" fill="none"><path vector-effect="non-scaling-stroke" fill="#000" d="M0 0c10 10 10 90 0 100V0Z"/></svg>
+        .article
+            article
+                video(autoplay playsinline loop muted)
+                    source(src="img/artefact.mp4" type="video/mp4")
+                    source(src="img/artefact.webm" type="video/webm")
+                //- img(src="../img/5.png" alt="")
+                .zw-philosophy-content
+                    h1
+                        .t My philosophy
+                    span
+                    //- - var text = `Goal orientation is my main engine of progress. I like working with people who know what to achieve and give their projects a new breath. Am I perfectionist? Yeah, and design should be attractive.`;
+                    - var text = `I am driven by progress and enjoy collaborating with individuals with clear objectives and fresh perspectives. While striving for excellence, I prioritize creating aesthetically pleasing work, recognizing that design is subjective.`;
+                    p.no-select !{text.replace(/\w+[^\w\s\']|_|\w+/g, "<u>$&</u>")}

@@ -1,0 +1,178 @@
+extends _includes/layout
+
+block vars
+    -const title = __.meta.site_title;
+    -const description = __.meta.description;
+    -const site_title = __.meta.site_title;
+
+block content
+    script.
+        const langs = "#{renderLocales}".split(","),
+            consoleLocalization = !{JSON.stringify(__.console)}
+    -const email = "zippwickness@gmail.com"
+    svg#svg-distortion(xmlns='http://www.w3.org/2000/svg' viewbox='0 0 463 463' style='position:absolute;top:-1px;left:-1px;height:0;width:0;')
+        defs
+            filter#svg-distortion-filter
+                feturbulence(type='fractalNoise' basefrequency='0.01 0.003' stitchtiles='noStitch' numoctaves='1' seed='2' result='warp')
+                fedisplacementmap(xchannelselector='R' ychannelselector='G' scale='1' in='SourceGraphic' in2='warp')
+    svg(style='position:absolute;top:-1px;left:-1px;height:0;width:0;')
+        filter#noise-filter
+            feTurbulence(type='fractalNoise' baseFrequency='0.6' stitchTiles='stitch')
+    //- .nav.hide
+        span.promo ZippW.
+        .menu
+            label.checkbox(for="ux_cb" data-cursor="-hidden") FX
+                input.n-p#ux_cb(type="checkbox")
+    #canvas
+    .canvas_background
+    .preloader
+        #terminal
+        //- .animation
+            h1(data-binary-animation='.5') Hello, World! Thank you for visiting my realm!
+            h1.green(data-binary-animation='.5') Welcome ...
+        //- .load_progress
+            span.icon
+                include ./svg/picture.svg
+            p Images loaded 50%
+
+    .console__indicator.n-s(data-cursor="-hidden")
+        .bullets
+            span
+            span
+        .labels
+            .wrap
+                each label in [__.console.indicatorConsole, __.console.indicatorContent]
+                    .line.n-s !{label.replace(/\S/g, (match, offset) => `<span style=\"--ci:${label.length - 1 - offset}\">${match}</span>`)}
+    .scroller__wrapper
+        .particles
+            .particles-item.-img.-v1
+                img(src='/img/bg/1.jpg' alt='' crossorigin='anoonymous' data-sampler='planeTexture')
+            .particles-item.-img.-v2
+                img(src='/img/bg/2.jpg' alt='' crossorigin='anoonymous' data-sampler='planeTexture')
+            .particles-item.-img.-v3
+                img(src='/img/bg/3.jpg' alt='' crossorigin='anoonymous' data-sampler='planeTexture')
+            .particles-item.-img.-v4
+                img(src='/img/bg/4.jpg' alt='' crossorigin='anoonymous' data-sampler='planeTexture')
+            .particles-item.-img.-v5
+                img(src='/img/bg/5.jpg' alt='' crossorigin='anoonymous' data-sampler='planeTexture')
+            .particles-item.-img.-v6
+                img(src='/img/bg/6.jpg' alt='' crossorigin='anoonymous' data-sampler='planeTexture')
+        .landing.n-s
+            .wrapper
+                header.title
+                    h1.landing_anim
+                        //- span=__.header.title
+                        include ./svg/txt.svg
+                        //- include ./svg/txt.svg
+                    p.landing_anim(data-splitting)=__.landing.hero
+                        //- span(style="--i:4") !{__.header.p2}
+                    .hint
+                        .mouse_container
+                            .box
+                        span Scroll to see more
+                    //- img.bg(src="/img/e2.png" alt="")
+                    //- video.bg(autoplay playsinline loop muted)
+                        source(src="/img/0001-0140.webm" type="video/webm")
+                .art
+                    .art_wrapper
+                        #canvas_art
+                        .img_wrapper
+                            img(src="/img/art.jpg" alt="" crossorigin="" data-sampler='planeTexture')
+                    //- video(autoplay playsinline loop muted)
+                        source(src="/img/landing.webm" type="video/webm")
+        .padding
+            a.section.active.n-s(href='https://zippw.github.io/2023' data-cursor='-hidden' onmouseenter="document.body.setAttribute('special', 'true')" onmouseout="document.body.setAttribute('special', 'false')" data-glsl-interaction data-section-show)
+                .container.left.n-p
+                    span.border.n-s.n-p=__.active.label
+                    h2.n-s.n-p !{__.active.title.replace(/\S/g, (match,index) => `<span style="--ci:${index}">${match}</span>`)}
+                        span.svg_wrap
+                            include ./svg/arrow_right.svg
+                    p.n-s.n-p=__.active.p
+                .container.right.n-p
+                    .distortion__wrapper(style='filter:url(#svg-distortion-filter)')
+                        .distortion__item.-active
+                            img(src='/img/art.jpg' alt='')
+                        .distortion__item
+                            img(src='/img/brand-logo.png' alt='')
+                .cursor_wrapper.n-p.n-s
+                    .active_sec_cursor.n-p.n-s
+            .section.quotes(data-section-show)
+                each slide, i in __.quotes.slides
+                    .slide(class=i===0 ? "active" : null)
+                        p=slide.txt
+                .controls
+                    .page=`1 / ${__.quotes.slides.length}`
+                    .progress
+                        .fill
+                    .pagination(data-cursor="-hidden")
+                        button.n-s <
+                        button.n-s >
+            .section.other(data-section-show)
+                span.border.n-s.n-p=__.other.label
+                p.n-s.n-p=__.other.p
+                .input(data-wavy='' data-wavy-type='click')
+                    .icon
+                        include ./svg/Search.svg
+                    input#search(autocomplete="off")
+                    label(for='search')=__.ui.search
+                .separator
+                -var list = [{}, {}];
+                -list[0].t = "Portfolio 2022";
+                -list[0].img = "https://zippw.github.io/2022/img/banner.jpg";
+                -list[0].href = "https://zippw.github.io/2022";
+                -list[1].t = "Portfolio 2021";
+                -list[1].img = "https://zippw.github.io/2021/img/banner.png";
+                -list[1].href = "https://zippw.github.io/2021";
+                .list
+                    each item, i in list
+                        a.item.n-s(href=item.href data-hover-tile=i)
+                            -let num = i + 1
+                            .l-s.n-p.n-s=(num < 10 ? "0" + num : num) + "."
+                            span.l-t.n-p.n-s=__.other.portfolio[item.t]
+                            .l-i
+                                .img
+                                    each el in Array(3)
+                                        img.n-s.n-p(src=item.img alt='')
+                                include ./svg/arrow_right.svg
+            //- .section.history(data-cursor="-hidden")
+                .progress__container
+                    .progress
+                        .fill
+                        each card, i in __.history.cards
+                            span.bullet
+                                .fill
+                each card, i in __.history.cards
+                    .card
+                        h1.fade
+                            span.n-s.n-p=card.h1
+                        ul
+                            each li, liI in card.ul
+                                li.n-p.n-s(style=`--li:${liI}`)
+                                    span=li
+            //- .section.links
+            .section.footer(data-cursor='-exclusion' data-section-show)
+                #gradient_cursor
+                    include ./svg/blob/1.svg
+                .row
+                    .col
+                        p=__.footer.contactMe
+                        .email
+                            a.n-s(href=`mailto:${email}` data-cursor='-hidden')=email
+                            button.btn.n-s(data-copy=email data-successful='' data-success-text=__.ui.copySuccess data-cursor='-hidden')
+                                span.no-select=__.ui.copy
+                .lower-content
+                    span
+                        | &copy;&#xFE0F; 2023
+                        a.n-s(href='https://zippw.link')  Valeriy Mosunov
+                    .links
+                        a.n-s(target='_blank' title='Dribbble' href='https://dribbble.com/ZippWickness' data-cursor-stick='' data-cursor='-footerlogo')
+                            include ./svg/logo/dribbble.svg
+                        a.n-s(target='_blank' title='Github' href='https://github.com/zippw' data-cursor-stick='' data-cursor='-footerlogo')
+                            include ./svg/logo/github.svg
+                        a.n-s(target='_blank' title='Discord' href='https://discord.gg/ebYaGYNx6J' data-cursor-stick='' data-cursor='-footerlogo')
+                            include ./svg/logo/discord.svg
+                        a.n-s(target='_blank' title='Telegram' href='https://t.me/ZippWickness' data-cursor-stick='' data-cursor='-footerlogo')
+                            include ./svg/logo/telegram.svg
+                        a.n-s(target='_blank' title='Steam' href='https://steamcommunity.com/id/valeriy_zippw' data-cursor-stick='' data-cursor='-footerlogo')
+                            include ./svg/logo/steam.svg
+    script(src="/assets/js/index.js?v=" + PACKAGE.version defer='')

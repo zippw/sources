@@ -1,0 +1,20 @@
+// Syne
+// @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
+@font-face {
+    font-family: "Syne";
+    src: url('../../fonts/Syne-Variable.ttf');
+}
+
+// Satoshi
+@font-face {
+    font-family: "Satoshi";
+    src: url('../../fonts/Satoshi-Variable.ttf');
+}
+
+@mixin syne {
+    font-family: 'Syne', 'Satoshi', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+@mixin satoshi {
+    font-family: 'Satoshi', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}

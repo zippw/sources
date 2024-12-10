@@ -1,0 +1,148 @@
+.btn {
+    &-brd {
+        position: relative;
+        display: inline-block;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        color: inherit;
+        background: 0 0;
+        border: 0;
+        border-radius: 0;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        letter-spacing: inherit;
+        line-height: inherit;
+        text-align: inherit;
+        text-transform: inherit;
+        text-indent: inherit;
+        text-decoration: none;
+        overflow: hidden;
+        border-radius: 1000px;
+        transition: .1s;
+
+        &-border {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 3;
+            border: 1px solid var(--orange_light);
+            border-radius: 1000px;
+            transition: border-color .8s $easeOutExpo;
+        }
+
+        &-waves {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            overflow: hidden;
+            transform: translateZ(0);
+            border-radius: inherit;
+
+            span {
+                display: block;
+                width: 100%;
+                height: 100%;
+                transform: translateY(101%);
+                border-radius: 50% 50% 0 0;
+
+                &:nth-child(1) {
+                    background: var(--purple);
+                    transition: transform .5s $wavy, border-radius .5s $wavy;
+                }
+
+                &:nth-child(2) {
+                    transform: translateY(1%);
+                    background: linear-gradient(45deg, var(--orange_light), var(--purple));
+                    transition: transform .3s $wavy, border-radius .3s $wavy;
+                }
+            }
+        }
+
+        &:focus,
+        &:hover {
+            text-decoration: none;
+        }
+
+        &-title {
+            position: relative;
+            display: inline-block;
+            padding: .16em .16em 0 0;
+            min-height: 100%;
+            overflow: hidden;
+            z-index: 2;
+
+            span {
+                display: block;
+                transition: transform .8s $easeOutExpo;
+
+                &:after {
+                    content: attr(data-text);
+                    display: block;
+                    position: absolute;
+                    top: 110%;
+                    left: 0;
+                    color: var(--text);
+                }
+            }
+        }
+
+        &-icon {
+            display: inline-block;
+            box-sizing: border-box;
+            z-index: 2;
+            transition: transform .8s $easeOutExpo;
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        @media (pointer:fine) {
+
+            &:focus,
+            &:hover {
+                transform: scale(1.1);
+                transition: transform .6s $easeOutBack;
+            }
+
+            &:hover &-border {
+                border-color: transparent !important;
+            }
+
+            &:hover &-waves span {
+                border-radius: 0;
+                transform: translateY(0);
+                transition-duration: .4s, .8s;
+
+                &:nth-child(2) {
+                    transform: translateY(-101%);
+                    transition-duration: .5s, .9s;
+                }
+            }
+
+            &:hover &-title span {
+                &:after {
+                    color: var(--bg);
+                }
+
+                transform: translateY(-110%);
+            }
+
+            &:hover &-icon svg {
+                transition-duration: .5s, .9s;
+                color: var(--bg);
+            }
+        }
+    }
+}

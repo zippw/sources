@@ -1,0 +1,35 @@
+mixin slide(wl, name, src, link, bg)
+    a.hc.swiper-slide.no-select(href=`${link}${NODE_ENV == 'development' ? '.html' : ''}` data-bg-img=bg || null data-cursor-icon="plus" data-cursor="-sm -exMedia -bigIcon -hidden -exclusion" data-slide-name=name)
+        img.bg(src=`img/locations/${src}` alt="")
+        .ctx
+            each char, i in [...wl.toString()]
+                .count(data-swiper-parallax-opacity="0" data-swiper-parallax-y=`${-100 - (i * 40)}`)=char
+            img.icon(data-swiper-parallax-opacity="0" data-swiper-parallax-y="-180" src="img/g_assets/icons/wl.webp" alt="")
+
+section.light#section_2(data-bgcolor="var(--bg2)")
+    .clouds
+        .clouds-1
+        .clouds-2
+        .clouds-3
+    .text__container
+        span.no-select Location
+            kbd ←
+            kbd →
+        .sky__location.no-select#sky_location Isle of#[br]Dawn
+    .light_swiper
+        .swiper-wrapper
+            +slide(9, "Isle of<br>Dawn", "isle_of_dawn.png", "island", "https://cdn.discordapp.com/attachments/975811523303850044/1056134828627595305/Mask_group.png")
+            +slide(21, "Daylight<br>Prairie", "daylight_prairie.png", "prairie", "https://cdn.discordapp.com/attachments/785238672093347840/1053765511688761404/urdchz0v5wy81.jpg")
+            +slide(19, "Hidden<br>Forest", "hidden_forest.png", "forest")
+            +slide(17, "Valley of<br>Triumph", "valley_of_triumph.png", "valley")
+            +slide(18, "Golden<br>Wasteland", "golden_wasteland.png", "wasteland")
+            +slide(11, "Vault of<br>Knowledge", "vault_of_knowledge.png", "vault")
+            +slide(11, "Eye of<br>Eden", "eye_of_eden.png", "eden")
+            //- +slide("Trial<br>quests", "trial_quests.png", "trials")
+    .light_swiper_swiper__pgn
+        .left_pgn.no-select
+            .swiper-wrapper
+                each a, i in Array(7)
+                    .swiper-slide=i+1
+        .middle_pgn.no-select —
+        .right_pgn.no-select 7

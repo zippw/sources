@@ -1,0 +1,33 @@
+mixin loc(i, name, wl, time, href, shown)
+    a.card.location(href=`/${href}${NODE_ENV == 'development' ? '.html' : ''}` style=`${shown ? "display:flex" : "display:none"}`)
+        h1.no-select
+            span.bold=`#${i} `
+            =name
+        .bw
+            .container
+                include ../svg/time-quarter past.svg
+                em.no-select=time
+            .container
+                img.no-select(src="img/g_assets/icons/wl.webp" alt="")
+                em.no-select=wl
+
+.left#navigaion_wiki(v-scrollbar)
+    .title.no-select # Winged Light
+        include ../svg/people.svg
+    .grid#wl_grid
+        each el, i in Array(21)
+            button.no-select(data-cursor-stick data-cursor="-lg")=i+1
+    .title.no-select Travel to
+        include ../svg/map-location_03.svg
+    .card__container__dd
+        +loc(1, "Isle of Dawn", 9, "10 mins", "island", true)
+        +loc(2, "Daylight Prairie", 17, "10 mins", "prairie", true)
+        +loc(3, "Hidden Forest", 21, "10 mins", "forest", true)
+        +loc(4, "Valley of Triumph", 19, "10 mins", "valley", true)
+        +loc(5, "Golden Wasteland", 18, "10 mins", "wasteland", false)
+        +loc(6, "Vault of Knowledge", 11, "10 mins", "vault", false)
+        +loc(7, "Eye of Eden", 11, "10 mins", "eden", false)
+    button.more.hc(data-cursor-stick data-cursor="-backOut -pointer_big" onclick="show_close(this)")
+        .icon
+            include ../svg/arrow-down.svg
+        .txt.no-select Show more

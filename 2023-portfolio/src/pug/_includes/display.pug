@@ -1,0 +1,36 @@
+section.display
+    .landing
+        .frame
+            .left
+                canvas#displayText
+                .border
+                .corners
+                    span
+                    span
+                    span
+                    span
+                .text#displayTextPlaceholder
+                    h1 Meet
+                    h2 
+                        include ../svg/star1.svg
+                        |THIS PORTFOLIO
+                    h3
+                        .ov
+                            .line 
+                            .line
+            .right.no-select
+                canvas#stage
+                .border
+                    .lines
+                        span
+                    //- img.label(src="img/label.png")
+                    img.main(src="img/art.jpg" data-hover="img/brand-logo.png" alt="")
+    .start.no-select
+        .hint
+            span Keep 
+            span Scroll
+                include ../svg/arrow_down.svg
+            span 'n
+        .time
+            h2 MSK
+            h2#ruTime 00:00

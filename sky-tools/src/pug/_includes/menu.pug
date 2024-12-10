@@ -1,0 +1,20 @@
+.side_menu
+    .title Menu
+        kbd Q
+    .menu__scroll(v-scrollbar)
+        .onoff
+            div
+                | Night mode
+            input#theme_changer_checkbox(type="checkbox")
+            label.hc(for="theme_changer_checkbox" data-magnetic data-cursor-stick data-cursor="-lg -backOut")
+                .left__line
+                .circle
+                .right__line
+        .project__help
+            div
+                | Your ideas
+            form.text_and_submit
+                textarea.hc#idea_textarea(v-scrollbar data-cursor-icon="pencil" data-cursor="-sm -hidden")
+                button.hc(type="submit") Unavailable
+        .hint Hotkeys menu
+            kbd(data-keybind="KeyH") H

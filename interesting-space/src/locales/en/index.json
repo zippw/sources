@@ -1,0 +1,90 @@
+{
+    "meta": {
+        "description": "On this web page, you can navigate between current and past portfolio projects.",
+        "site_title": "Portfolio Collection",
+        "author": "Valeriy Zippw."
+    },
+    "console": {
+        "loading_images": "Loading images",
+        "greeting": "> Hi! If this is your first time on this site, enter the `\\x1b[1m\\x1b[35mhelp\\x1b[0m` command. <",
+        "dialog": {
+            "cancelMsg": "Press Ctrl + C or type \\x1b[31mcancel\\x1b[33m at any time to cancel.",
+            "canceled": "canceled."
+        },
+        "commands": {
+            "run": {
+                "description": "Start your main experience",
+                "starting": "Starting..."
+            },
+            "help": {
+                "description": "Prints this help message",
+                "welcomeMsg": "Welcome to my space! Try some of the commands below."
+            },
+            "lang": {
+                "description": "Changes website language",
+                "dialog": "Select language"
+            },
+            "contact": {
+                "description": "Send me a message or place an order",
+                "dialog": "Write your email",
+                "incorrectEmailMsg": "Your email looks a little strange.",
+                "dialog1": "Write your name",
+                "emptyValueMsg": "Empty values are not accepted!",
+                "dialog2": "Write your message (not working yet)"
+            },
+            "optimize": {
+                "description": "Disables resource-intensive features (disabled by default on phones)",
+                "optimizationEnable": "Optimization is enabled",
+                "optimizationDisable": "Optimization is disabled",
+                "restartIn": "Will restart in <sec> seconds"
+            },
+            "autoskip": {
+                "description": "Automatically closes the console after the page loads",
+                "autoskipEnable": "Auto skip is enabled.",
+                "autoskipDisable": "Auto skip is disabled."
+            }
+        },
+        "commandNotFound": "command not found",
+        "indicatorConsole": "Console",
+        "indicatorContent": "Main"
+    },
+    "landing": {
+        "hero": "Mosunov Valery, <age> old. A self-taught full-stack dev, aspiring UI/UX designer from Russia.",
+        "scroll": "Scroll to see more"
+    },
+    "active": {
+        "label": "active",
+        "title": "Portfolio 2023",
+        "p": "This website is the main place where I showcase my IT achievements. Here you can request a project or explore my abilities in this topic."
+    },
+    "other": {
+        "label": "other",
+        "p": "Although these projects are no longer functional, they have been preserved on the Internet as an archive of early web development.",
+        "portfolio": {
+            "Portfolio 2022": "Portfolio 2022",
+            "Portfolio 2021": "Portfolio 2021"
+        }
+    },
+    "quotes": {
+        "slides": [
+            {
+                "txt": "I really enjoy getting inspiration from works on Dribbble and Awwwards and I'm very grateful to the authors for sharing."
+            },
+            {
+                "txt": "I couldn't think of anything to do in this section, so I guess I can share my thoughts with this silly quote collection."
+            },
+            {
+                "txt": "I will never part ways with Visual Studio Code, it's the only decent product from Microsoft ¯\\_(ツ)_/¯"
+            }
+        ]
+    },
+    "footer": {
+        "contactMe": "Footer (contacts, social media, etc.)"
+    },
+    "ui": {
+        "search": "Search",
+        "copy": "copy",
+        "copySuccess": "copied"
+    },
+    "lang": "en"
+}

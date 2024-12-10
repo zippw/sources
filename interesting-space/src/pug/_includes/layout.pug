@@ -1,0 +1,14 @@
+block vars
+doctype html
+html(lang=__.lang data-theme="dark")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title=title
+        link(rel="stylesheet" href="/assets/css/style.css?v=" + PACKAGE.version)
+        link(rel="stylesheet" href="/vendor/css/xterm.css")
+    body.no-scrollbar
+        script.
+            const env_path = "#{api}";
+        block content

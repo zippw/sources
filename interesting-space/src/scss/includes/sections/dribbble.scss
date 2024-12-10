@@ -1,0 +1,38 @@
+.section.dribbble {
+    position: relative;
+    background: $bg1;
+    flex-direction: column;
+    z-index: 1;
+    
+    #dribbble_canvas {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+    
+    .dribbble_slider {
+        position: relative;
+        display: block;
+        width: 100%;
+        width: 40%;
+        overflow: hidden;
+        overflow-x: scroll;
+
+        .dribbble_slider_wrapper {
+            position: relative;
+            height: 100%;
+            display: flex;
+            width: fit-content;
+
+            .dribbble_shot {
+                opacity: 0;
+
+                img {
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

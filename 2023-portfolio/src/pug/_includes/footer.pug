@@ -1,0 +1,26 @@
+mixin link(name, link)
+    #{link.type == "anchor" || link.type == "external" ? "div" : "a"}.nav.no-select(href=(link.type == "href" ? link.link : null) data-anchor=(link.type == "anchor" ? link.link : null) data-anchor-offset=(link.offset ? link.offset : "0"))
+        .wrap
+            .line !{name.replace(/\S/g, (match, offset) => `<span style=\"--ci:${offset}\">${match}</span>`)} #[span(style=`--ci:${name.match(/\S/g).length}`): sup=external ? Object.keys(external).length : null]
+            .line !{name.replace(/\S/g, (match, offset) => `<span style=\"--ci:${offset}\">${match}</span>`)} #[span(style=`--ci:${name.match(/\S/g).length}`): sup=external ? Object.keys(external).length : null]
+footer.zw-footer
+    .ctn
+        .zw-footer-links
+            +link("Biography", {type: "anchor", link: "section.bio_portfolio", offset: "-50"})
+            +link("FAQ", {type: "anchor", link: "section.faq", offset: "-50"})
+            +link("Contacts", {type: "anchor", link: "section.work", offset: "-50"})
+            +link("Portfolio 2023", {type: "anchor", link: "section.portfolio"})
+            +link("Portfolio Explorer", {type: "href", link: "https://zippw.github.io"})
+        .zw-footer-company
+            .logo
+                //- include ../svg/logo.svg
+                span Mosunov Valeriy
+            .slogan I like to make it nicely.
+            .social
+    .co
+        .p Copyright ©️ 2023
+            .s
+            .inline
+                +link(DOMAIN, {type: "href", link: `https://${DOMAIN}`})
+            .s
+            | All rights reserved

@@ -1,0 +1,140 @@
+input[type='checkbox'] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    display: none;
+
+    &:hover {
+        &~label .circle {
+            border-color: var(--text_secondary);
+        }
+
+        &~label .right__line {
+            margin-left: 10px;
+        }
+    }
+
+    &:checked {
+        &~label .left__line {
+            width: 100%;
+            margin-right: 5px;
+            opacity: 1;
+        }
+
+        &~label .right__line {
+            width: 0%;
+            opacity: 0;
+            margin-left: 0;
+        }
+
+        &:hover {
+            &~label .left__line {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    &~label {
+        width: 50px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+
+
+        .left__line {
+            background: var(--text);
+            height: 2px;
+            width: 0%;
+            opacity: 0;
+            transition: .5s cubic-bezier(0.83, 0, 0.17, 1)
+        }
+
+        .right__line {
+            background: var(--text);
+            height: 2px;
+            width: 100%;
+            margin-left: 5px;
+            transition: .5s cubic-bezier(0.83, 0, 0.17, 1);
+        }
+
+        .circle {
+            width: 10px;
+            height: 10px;
+            border: 1px solid var(--text);
+            border-radius: 100%;
+            flex-shrink: 0;
+            transition: 1s;
+        }
+
+    }
+}
+
+#canvas,
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+[v-scrollbar] {
+    &::-webkit-scrollbar {
+        width: 4px;
+        height: 8px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--text_secondary);
+        border-radius: 5px 0 0 5px;
+        transition: .3s;
+
+        &:hover {
+            background-color: var(--text_secondary)
+        }
+    }
+}
+
+[h-scrollbar] {
+    &::-webkit-scrollbar {
+        height: 5px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--text_secondary);
+        border-radius: 5px;
+        transition: .3s;
+
+        &:hover {
+            background-color: var(--text_primary)
+        }
+    }
+}
+
+[no-scrollbar] {
+    &::-webkit-scrollbar {
+        display: none
+    }
+}
+
+.c-scrollbar_thumb {
+    border-radius: 7px !important;
+}
+
+.media_img {
+    overflow: hidden;
+    cursor: none;
+
+    img {
+        transition: transform .2s;
+    }
+
+    &:hover {
+        img {
+            transform: scale(1.1)
+        }
+    }
+}

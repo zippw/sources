@@ -1,0 +1,126 @@
+mixin cb(txt, val, name)
+    label.no-select.checkbox
+        input(type="checkbox" name=name value=val)
+        =txt
+mixin ra(txt, val, name)
+    label.no-select.checkbox
+        input(type="radio" name=val value=name)
+        =txt
+-const required = "You must complete all fields marked with *";
+-const email = "Your email looks a little strange.";
+section.work
+    .bg
+    .work_title.st-fade-group(data-fade=`[{"opacity":0}, {"opacity":1,"duration":0.3}]`)
+        h1.no-select.st-fade-child Crazy about
+        h2.no-select.st-fade-child web experience?
+    .work_wrapper.st-fade-group(data-fade=`[{"y":100,"opacity":0}, {"y":0,"opacity":1,"duration":0.3,"ease":"sine.inOut"}]`)
+        .place
+            .banner.st-fade-child
+                h1.no-select Let's get it#[br]
+                    img(src="img/together.png" alt="")
+            .order.st-fade-child
+                canvas#contactBg
+                form#contactForm
+                    .slider_wrapper
+                        .slider
+                            .slide
+                                .popout
+                                    .content_wrapper
+                                        .title Wait...
+                                        .content
+                                    .btn
+                                        button.no-select(type="button") Ok
+                                .main
+                                    .order-input(data-required=required)
+                                        .corners
+                                            span 
+                                            span 
+                                            span 
+                                            span 
+                                        input(type="text" name="name" placeholder="Your name*" maxlength="100" autocomplete="off")
+                                    .order-input(data-required=required data-email=email)
+                                        .corners
+                                            span 
+                                            span 
+                                            span 
+                                            span 
+                                        input(type="text" name="email" placeholder="Email*" maxLength="100" autocomplete="off")
+                                .btn
+                                    button.no-select(data-control="1" type="button") Continue
+                            .slide
+                                .popout
+                                    .content_wrapper
+                                        .title Wait...
+                                        .content
+                                    .btn
+                                        button.no-select(type="button") Ok
+                                .main
+                                    .order-group
+                                        .order-group-label What product(s) do you need?
+                                        .order-group-checkboxes
+                                            +cb("Website from scratch", "site_from_scratch", "offers")
+                                            +cb("Telegram / discord bot", "tg_bot", "offers")
+                                            +cb("UI/UX implementation", "uiux-implementation", "offers")
+                                            +cb("Electron app", "electron", "offers")
+                                .btn
+                                    button.no-select(data-control="1" type="button") Continue
+                                    button.no-select.-outline(data-control="-1" type="button") Back
+                            .slide
+                                .popout
+                                    .content_wrapper
+                                        .title Wait...
+                                        .content
+                                    .btn
+                                        button.no-select(type="button") Ok
+                                .main
+                                    .order-group
+                                        .order-group-label Choose suitable budget in rubles
+                                        .order-group-checkboxes
+                                            +ra("1,000 - 10,000", "budget", "1k-10k")
+                                            +ra("10,000 - 50,000", "budget", "10k-50k")
+                                            +ra("50,000 - 200,000", "budget", "50k-200k")
+                                            +ra("200,000 - 500,000", "budget", "200k-500k")
+                                            +ra("> 500.000", "budget", "> 500k")
+                                .btn
+                                    button.no-select(data-control="1" type="button") Continue
+                                    button.no-select.-outline(data-control="-1" type="button") Back
+                            .slide
+                                .popout
+                                    .content_wrapper
+                                        .title Wait...
+                                        .content
+                                    .btn
+                                        button.no-select(type="button") Ok
+                                .main
+                                    .order-group
+                                        .order-input(data-required=required)
+                                            .corners
+                                                span 
+                                                span 
+                                                span 
+                                                span 
+                                            .textarea_wrapper
+                                                textarea(placeholder="Write your message*" name="message" maxlength="1000")
+                                        p.sub By submitting this form, I acknowledge that I have read and agree to the 
+                                            span.a.no-select#popOutPolicy privacy policy.
+                                .btn
+                                    button#submitMessageForm.no-select(type="submit")
+                                        .icon
+                                            span
+                                                include ../svg/Message.svg
+                                            span 
+                                                .pulse
+                                        | Send
+                                    button.no-select.-outline(data-control="-1" type="button") Back
+                    .slider_controls
+                        - for (var i = 0; i < 4; ++i) {
+                            .bullet.no-select(class=(i === 0 ? "-a" : null))
+                                span
+                        - }
+        .place.video.st-fade-child
+            .video__container
+                video(autoplay playsinline loop muted)
+                    source(src="img/artefact1.mp4" type="video/mp4")
+                    source(src="img/artefact1.webm" type="video/webm")
+
+    include ../_includes/footer

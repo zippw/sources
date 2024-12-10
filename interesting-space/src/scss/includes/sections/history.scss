@@ -1,0 +1,175 @@
+.section.history {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: calc(50vh - 150px);
+    border: 2px solid $muted;
+    background: $bg1;
+    height: 300px;
+    @include pixel-borders($corner-size: 1,
+    $border-size: 6px,
+    $border-color: $muted);
+
+    // overflow: hidden;
+    .progress__container {
+        position: absolute;
+        top: 0;
+        left: 2rem;
+        width: 5px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        z-index: 2;
+
+        .progress {
+            position: relative;
+            height: 150px;
+            height: fit-content;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;
+
+            &>.fill {
+                transform-origin: center center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: $primary1;
+                border-radius: 100px;
+                pointer-events: none;
+                opacity: 0;
+                transform: scale(1);
+                z-index: -1;
+            }
+
+            span.bullet {
+                position: relative;
+                height: 100%;
+                min-height: 20px;
+                width: 100%;
+                background: $muted1;
+                border-radius: 5px;
+                cursor: pointer;
+                overflow: hidden;
+                // box-shadow: 0px 0px 0px 2px transparentize($primary1, .5);
+                transition: .2s $easeInOutCubic;
+
+                &>.fill {
+                    transform-origin: top center;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: $primary1;
+                    pointer-events: none;
+                    transform: scaleY(1);
+                }
+
+                &:hover {
+                    border-color: transparentize($primary1, .5);
+                }
+
+                &.active {
+                    // box-shadow: 0px 0px 0px 2px $primary1;
+                }
+            }
+        }
+    }
+
+    .card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 5% calc(4rem + 5px);
+        height: 100%;
+
+        h1 {
+            position: absolute;
+            font-family: "Silkscreen", "Montserrat";
+            bottom: 0;
+            right: 2rem;
+            color: transparentize($muted, .4);
+            text-align: right;
+            font-size: 5rem;
+            letter-spacing: -.5rem;
+            font-weight: normal;
+            display: inline-block;
+            transform-origin: 50% 50%;
+            transform: translate(0px, 0px);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            overflow: hidden;
+
+            span {
+                display: inline-block;
+                text-align: center;
+                position: relative;
+                opacity: 0;
+                transform: translate(0%, 100%) rotateX(-60deg) skew(0deg, 2deg) scale(0.8, 0.8);
+                will-change: transform;
+                transition:
+                    opacity .3s $easeInOutSine,
+                    transform 0s .3s;
+            }
+        }
+
+        ul {
+            padding: 0;
+            display: flex;
+            gap: .4rem;
+            flex-wrap: wrap;
+
+            li {
+                list-style: none;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+                
+                span {
+                    font-size: 1rem;
+                    color: $primary1;
+                    padding: 5px 10px;
+                    border: 1px solid $muted1;
+                    font-weight: 400;
+                    border-radius: 100px;
+                    display: inline-block;
+                    opacity: 0;
+                    transform: translateY(120%);
+                    transition:
+                        opacity .3s $easeInOutSine,
+                        transform .3s .3s;
+                    will-change: transform;
+                }
+
+            }
+        }
+
+        &.active {
+            h1 span {
+                transform: none;
+                opacity: 1;
+                transition:
+                    opacity .3s $easeInOutSine,
+                    transform .3s
+            }
+
+            ul li {
+                span {
+                    opacity: 1;
+                    transform: none;
+                    transition: .6s calc(var(--li, 0) * .1s) $easeInOutCubic;
+                }
+            }
+        }
+    }
+}

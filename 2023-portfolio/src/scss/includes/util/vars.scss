@@ -1,0 +1,43 @@
+$bg: #0B0D0F;
+$text: #ffffff;
+$muted: #4A4D53;
+$purple: #9b6cf0;
+$purple_light: #c7b2f2;
+// $purple_lighter: #ECE3FE;
+$purple_lighter: #efe6ff;
+$orange: #f69d51;
+$orange_light: #fcc79e;
+$bg_light: #121316;
+$dynamicTransition: background-color .3s, fill .3s;
+
+$frame_radius: 20px;
+
+html[data-theme='dark'] {
+    --bg: #{$bg};
+    --text: #{$text};
+    --muted: #{$muted};
+    --purple: #{$purple};
+    --purple_light: #{$purple_light};
+    --purple_lighter: #{$purple_lighter};
+    --orange: #{$orange};
+    --orange_light: #{$orange_light};
+    --bg_light: #{$bg_light};
+
+    --darken_purple_05: #{darken($purple, 5)};
+    --transparentize_bg_05: #{transparentize($bg, .5)};
+    --transparentize_bg_03: #{transparentize($bg, .3)};
+    --transparentize_bg_1: #{transparentize($bg, 1)};
+    --transparentize_text_05: #{transparentize($text, .5)};
+    --transparentize_text_03: #{transparentize($text, .3)};
+    --transparentize_muted_05: #{transparentize($muted, .5)};
+    --transparentize_purple_light_05: #{transparentize($purple_light, .5)};
+    --lighten_purple_light_02: #{lighten($purple_light, .2)};
+
+    --pdg: 80px;
+}
+
+@media screen and (max-width: 600px) {
+    html {
+        --pdg: 20px !important;
+    }
+}

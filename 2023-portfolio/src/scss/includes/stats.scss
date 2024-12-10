@@ -1,0 +1,164 @@
+section.stats {
+    color-scheme: dark;
+    // padding: 0 var(--pdg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--purple_lighter);
+    margin: 0 var(--pdg);
+    margin-top: var(--pdg);
+
+    // padding: var(--pdg) calc(var(--pdg) * 2) 0;
+    .stats__description {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 50px;
+        padding: 40px;
+        background: var(--bg);
+        border-radius: $frame_radius;
+        border: 2px solid var(--purple_lighter);
+
+        h1 {
+            @include syne;
+            font-size: 1.75rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--muted);
+            font-weight: 500;
+            width: 90%;
+        }
+
+        .figure {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            svg {
+                height: 50px;
+                width: fit-content;
+            }
+
+            .btn {
+                overflow: hidden;
+                padding: 0 1.5rem;
+                border-radius: 1000px;
+                vertical-align: middle;
+                font-size: 1.5rem;
+                line-height: 130%;
+                height: fit-content;
+                width: fit-content;
+            }
+        }
+    }
+
+    .stats__wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 2px solid var(--purple_lighter);
+        border-radius: $frame_radius;
+        background: var(--bg);
+        height: 100%;
+
+        .graph {
+            position: relative;
+            flex-shrink: 1;
+
+            canvas {
+                border-radius: 0 0 $frame_radius $frame_radius;
+                border-top: 1px solid transparent;
+                background: var(--bg);
+                cursor: crosshair;
+                transition: .3s;
+            }
+
+            canvas:hover {
+                opacity: 1;
+                background: var(--bg_light);
+                border-top-color: var(--muted);
+            }
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 50px;
+            // width: calc(100% - 80px);
+            padding: 20px 40px 10px 40px;
+            background: var(--bg);
+            border-radius: $frame_radius $frame_radius 0 0;
+
+            h3 {
+                font-family: monospace;
+                font-weight: 400;
+                color: var(--muted);
+                font-size: 1rem;
+            }
+
+            h1 {
+                position: relative;
+                @include syne;
+                font-size: 4.5rem;
+                font-variant-numeric: lining-nums;
+                line-height: 50px;
+                letter-spacing: 2px;
+                font-weight: 900;
+                width: fit-content;
+                transition: .5s;
+
+                &:after {
+                    content: var(--t);
+                    position: absolute;
+                    left: 100%;
+                    top: -.5rem;
+                    color: var(--c);
+                    font-size: 1.5rem;
+                    opacity: 0;
+                    transition: color 1s, opacity 1s, transform .2s $easeOutBack;
+                }
+
+                &.-c {
+                    &:after {
+                        opacity: 1;
+                        transform: translateY(5px);
+                        transition: 0s;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        grid-template-columns: 1fr;
+    }
+
+    @media screen and (max-width: 600px) {
+        .stats__description {
+            padding: 20px;
+
+            .figure {
+                gap: 2rem;
+
+                a {
+                    font-size: 1rem !important;
+                    text-align: center;
+                }
+            }
+        }
+
+        .stats__wrapper .details {
+            padding: 20px 20px 10px 20px;
+            gap: 20px;
+
+            h1 {
+                font-size: 3rem;
+                line-height: 40px;
+            }
+        }
+    }
+}

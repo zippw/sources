@@ -1,0 +1,51 @@
+mixin generateFAQ(faqList)
+  .pagin.no-select
+    .pagin_wr
+      .slider
+        each el, i in faqList
+          span=i+1
+    .pagin_all=`/ ${faqList.length}`
+  .faq-grid
+    - var k = 0;
+    - faqList.forEach((el, i) => {if(faqList[k].value.length < faqList[i].value.length) k = i});
+    each el, i in faqList
+      .faq-item(class=`${i == k ? "big " : ""}${i == 0 ? "active" : "no-select"}`)
+        h3 !{el.name.replace(/\w+[^\w\s\']|_|\w+/g, (match, offset) => `<div style=\"--d:${(offset)}\">${match}</div>`)}
+        .answer
+          span
+          p=el.value
+section.faq
+  .h1
+    h1 !{"Frequently Asked".replace(/\S/g, (match, offset) => `<div style=\"--delay:${(Math.random() * 0.5).toFixed(3)}s\">${match}</div>`)}
+    h1 !{"Questions".replace(/\S/g, (match, offset) => `<div style=\"--delay:${(Math.random() * 0.5).toFixed(3)}s\">${match}</div>`)}
+  .faq__container
+    .corners
+      each el in new Array(4)
+        span
+    .controls
+      button.no-select
+        include ../svg/arrow_left.svg
+      button.no-select
+        include ../svg/arrow_right.svg
+    +generateFAQ([
+{
+  "name": "What is my experience as a web developer?",
+  "value": "I have more than 3 years of experience as a web developer."
+},
+{
+  "name": "What frameworks and libraries do I use?",
+  "value": "I use various libraries such as electron, express, gsap, smooth-scrollbar, three, glsl-noise and others. I don't like frameworks, lol."
+},
+{
+  "name": "What debugging tools do I use?",
+  "value": "I test my code using various instruments such as Gulp, nodemon, Chrome DevTools panel and others."
+},
+{
+  "name": "How do I ensure the security of my code?",
+  "value": "Secret."
+},
+{
+  "name": "How do I work in a team and how do I manage conflicts in a project?",
+  "value": "Usually, I work alone. However, I'm open-minded to work together"
+}
+])

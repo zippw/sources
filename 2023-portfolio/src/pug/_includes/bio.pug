@@ -1,0 +1,59 @@
+mixin link(name, link)
+    a.btn.btn-brd.no-select(style="pointer-events: auto" href=`https://${link}` target="_blank" data-dynamic-btn="--bg_light")
+        span.btn-brd-border
+        span.btn-brd-waves
+            span
+            span
+        span.btn-brd-title
+            span.no-select(data-text=name)=name
+section.bio_portfolio
+    .bio#scrollBio
+        .card
+        .content
+            .overlay
+                img.no-select.epse(src="img/ellipse.png" alt="")
+                img.no-select.epse(src="img/ellipse1.png" alt="")
+            .left
+                .h1
+                    h1
+                        span Valeriy
+                    h1
+                        span Mosunov
+                p Hi! I'm a creative UI/UX developer from Russia.
+                    |#[br]I have a passion for unique types of art.
+                    |#[br]Now I am about 16 years old, but despite this
+                    |#[br]I continue to improve myself.
+            .right
+                .line
+                    .label.no-select.op-bio Languages
+                    .tags.no-select
+                        span.op-bio javascript
+                        span.op-bio html
+                        span.op-bio css
+                        span.op-bio typescript
+                .sep
+                    <svg><path d="M0,100 Q609,100 1218,100"></path></svg>
+                .line
+                    .label.no-select.op-bio Total projects
+                    .num.op-bio 30
+                .sep
+                    <svg><path d="M0,100 Q609,100 1218,100"></path></svg>
+                .line
+                    .label.no-select.op-bio AKA
+                    .num.op-bio @ZippWickness
+                .sep
+                    <svg><path d="M0,100 Q609,100 1218,100"></path></svg>
+        .svg_layout
+            include ../svg/union.svg
+            include ../svg/star.svg
+    .more
+        h1.round.no-select Biography
+            span
+        .group
+            h1.no-select Social links
+                include ../svg/right.svg
+            .btns
+                +link("Dribbble", "dribbble.com/zippw")
+                +link("Discord", "discord.gg/ebYaGYNx6J")
+                +link("Steam", "steamcommunity.com/id/valeriy_zippw")
+                +link("Telegram", "t.me/ZippWickness")

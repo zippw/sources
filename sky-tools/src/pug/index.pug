@@ -1,0 +1,19 @@
+extends _includes/layout
+
+block vars
+    -const title = 'Sky Tools - Home';
+    -const page = 'Home';
+    -const description = 'Lots of interesting tools can be found on this site.';
+    -const site_title = 'SCotL Tools | start page';
+
+block content
+    include ./_includes/menu
+    include ./_includes/nav
+    include ./_includes/nav_sec
+    .scroller(data-scroll-container)
+        .main__content
+            include ./_includes/sec_info
+            include ./_includes/sec_light
+            //- include ./_includes/sec_schedule
+            include ./_includes/shader_scripts
+    script(src='assets/js/index.js?v=' + PACKAGE.version, defer)

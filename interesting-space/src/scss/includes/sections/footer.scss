@@ -1,0 +1,221 @@
+.section.footer {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: $bg1;
+    // backdrop-filter: blur(40px);
+    transition: background-color .5s;
+
+    #sphere_box {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        border-radius: $radius;
+        overflow: hidden;
+        border: 1px solid $muted;
+        z-index: 1;
+        // mask-image: radial-gradient(300px circle at var(--x, 0px) var(--y, 0px), black 20%, rgba(0, 0, 0, 0.25), transparent)
+    }
+
+    #gradient_cursor {
+        --t: .5s;
+        position: fixed;
+        height: 300px;
+        aspect-ratio: 1;
+        z-index: -1;
+        scale: .5;
+        opacity: 0;
+        filter: blur(40px);
+        animation: spin_morph 20s infinite linear;
+        transition:
+            scale var(--t),
+            opacity var(--t);
+
+        svg {
+            width: 100%;
+            height: 100%
+        }
+
+        @keyframes spin_morph {
+            0% {
+                rotate: 0deg
+            }
+
+            100% {
+                rotate: 360deg
+            }
+        }
+    }
+
+    .blur {
+        position: absolute;
+        left: 10%;
+        top: -10%;
+        width: 100%;
+        z-index: -1
+    }
+
+    button.btn {
+        outline: 0;
+        display: inline-flex;
+        align-items: center;
+        font-size: .7rem;
+        vertical-align: middle;
+        background: rgba(40, 40, 40, .5);
+        border-radius: 5px;
+        text-transform: uppercase;
+        padding: .4rem .5rem;
+        color: $text1;
+        cursor: pointer;
+
+        &>span {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem
+        }
+
+        svg {
+            display: inline-block;
+            width: 12px;
+            height: 10px;
+            fill: none;
+            stroke: $green;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 16px;
+            stroke-dashoffset: 16px;
+            transition: .4s
+        }
+
+        &:hover {
+            background: $muted
+        }
+    }
+
+    .row {
+        display: flex;
+        gap: 50px;
+        z-index: 1;
+
+        .col .center {
+            width: 100%;
+            height: 100%
+        }
+    }
+
+    .email {
+        display: flex;
+        align-items: flex-end;
+        margin-top: 1rem;
+        gap: 10px;
+
+        a {
+            font-size: 1.5rem;
+            position: relative;
+            text-decoration: none;
+            color: #fff;
+            font-weight: normal;
+            font-family: "Silkscreen", "Montserrat";
+
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: -0.3rem;
+                left: 0;
+                opacity: 0;
+                height: 2px;
+                width: 100%;
+                background: $text1;
+                transform: scaleX(0);
+                transform-origin: right center;
+                transition:
+                    opacity .3s $easeInSine,
+                    transform .3s,
+                    transform-origin 0s;
+            }
+
+            &:hover:after {
+                opacity: 1;
+                transform: scaleX(1);
+                transform-origin: left center;
+                transition:
+                    opacity .3s $easeOutSine,
+                    transform .3s,
+                    transform-origin 0s;
+            }
+        }
+
+        button {
+            font-weight: 700;
+
+            span {
+                color: $text1
+            }
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        margin: .5rem 0 0 0;
+        gap: .5rem;
+        padding: 0;
+
+        li {
+            list-style: none;
+
+            a {
+                color: $muted1
+            }
+
+            button.nd {
+                padding: 0 !important;
+                background: none !important;
+                text-transform: inherit;
+                font-size: inherit;
+
+                span {
+                    color: $muted1
+                }
+            }
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: $text
+    }
+
+    .lower-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+
+        .links {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: $muted1;
+                transition: color .3s;
+
+                svg {
+                    width: 32px;
+                    height: 32px
+                }
+
+                &:hover {
+                    color: $text
+                }
+            }
+        }
+    }
+}

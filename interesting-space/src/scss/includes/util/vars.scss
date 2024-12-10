@@ -1,0 +1,23 @@
+$text: #ffffff;
+$text1: #E5E5E5;
+$muted: #282828;
+$muted1: #353535;
+$bg: #101010;
+$bg1: #131313;
+$bg2: #EBEBEB;
+$red: red;
+$green: #16BF78;
+$primary1: #D1CCFF;
+
+$bodyGRD1: #f3dcd5;
+$bodyGRD2: #d2a1ff;
+$bodyGRD3: #bcf5e0;
+// $bodyGRD1: #f0d1a6;
+// $bodyGRD2: #b591fc;
+// $bodyGRD3: #ea91a8;
+
+$radius: 20px;
+$margin: 25px;
+$nav_size: 60px; // landing.js scrolltrigger pin animation ~ line 106
+$vh: calc(100dvh - var(--margin) * 2);
+// $vh: calc(100vh - $margin * 2 - $nav_size)

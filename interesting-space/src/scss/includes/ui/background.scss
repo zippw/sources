@@ -1,0 +1,172 @@
+// .nav {
+//     position: absolute;
+//     height: $nav_size;
+//     width: 100%;
+//     border-bottom: 1px solid $text;
+//     padding: var(--margin);
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     z-index: 1000;
+//     background: $bg1;
+//     transition:
+//         transform 1s $easeInOutQuint,
+//         opacity .5s 1.2s;
+
+//     .promo {
+//         font-family: "Silkscreen";
+//         font-weight: normal;
+//         font-size: 2rem;
+//     }
+
+//     &.hide {
+//         // opacity: 0;
+//         transform: translateY(-100%)
+//     }
+
+//     .menu {
+//         .checkbox {
+//             background: #fff;
+//             color: $bg1;
+//             font-weight: 800;
+//             padding: 2px 6px;
+//             cursor: pointer;
+//             display: flex;
+//             align-items: center;
+//             // font-family: "Silkscreen";
+//             transition: .2s;
+
+//             @include pixel-borders($corner-size: 1,
+//                 $border-size: 4px,
+//                 $border-color: #fff);
+
+//             &:hover {
+//                 color: #fff;
+//                 background: $bg1;
+//                 @include pixel-borders($corner-size: 1,
+//                     $border-size: 4px,
+//                     $border-color: $bg1);
+//             }
+
+//             input {
+//                 display: none;
+//             }
+//         }
+//     }
+// }
+
+body {
+    --margin: #{$margin};
+}
+
+#canvas {
+    position: absolute;
+    top: var(--margin);
+    // top: $margin + $nav_size;
+    left: var(--margin);
+    right: var(--margin);
+    width: calc(100% - var(--margin) * 2);
+    // height: calc(100vh - (var(--margin) * 2 + $nav_size)); // additional space for navbar
+    height: calc(100dvh - (var(--margin) * 2));
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        height: 100%;
+        width: 100%;
+        z-index: 5;
+        opacity: 10%;
+        pointer-events: none;
+        filter: url(#noise-filter)
+    }
+}
+
+body[touchdevice="true"] {
+    #canvas:before {
+        display: none;
+    }
+}
+
+.canvas_background {
+    --progress: -100;
+    position: absolute;
+    // display: none;
+    top: calc(var(--margin) * var(--progress) / 100);
+    left: calc(var(--margin) * var(--progress) / 100);
+    right: calc(var(--margin) * var(--progress) / 100);
+    bottom: calc(var(--margin) * var(--progress) / 100);
+    width: calc(100% - var(--margin) * 2 * var(--progress) / 100);
+    // width: 200%;
+    overflow: hidden;
+    height: calc(100dvh - var(--margin) * 2 * var(--progress) / 100);
+    background: $bg1;
+    border: 1px solid $muted1;
+    font-family: "Silkscreen";
+    z-index: -10;
+    @include pixel-borders($corner-size: 1,
+        $border-size: 6px,
+        $border-color: $bg1);
+
+    // padding: var(--pdg-t) var(--pdg-l);
+}
+
+.particles {
+    $root: &;
+
+    position: absolute;
+    left: var(--margin);
+    right: var(--margin);
+    width: calc(100% - var(--margin) * 2);
+    height: 100%;
+    overflow: hidden;
+
+    contain: content;
+    pointer-events: none;
+    z-index: -2;
+
+    &-item {
+        $this: &;
+
+        font-family: monospace;
+        position: absolute;
+        pointer-events: auto;
+        // animation: identifier 1s infinite;
+
+        &.-img {
+            img {
+                max-height: 200px;
+                opacity: 0;
+            }
+        }
+
+        /* Positions */
+        &.-v1 {
+            left: 5%;
+        }
+
+        &.-v2 {
+            left: 2%;
+        }
+
+        &.-v3 {
+            left: 19%;
+        }
+
+        &.-v4 {
+            right: 2%;
+        }
+
+        &.-v5 {
+            right: 5%;
+        }
+
+        &.-v6 {
+            right: 15%;
+        }
+    }
+}

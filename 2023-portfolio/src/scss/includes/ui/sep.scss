@@ -1,0 +1,40 @@
+.sep {
+    position: relative;
+    height: 1px;
+    width: 100%;
+    
+    svg {
+        vertical-align: middle;
+    }
+    
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -7.5px;
+        left: 0;
+        right: 0;
+        height: 15px;
+    }
+    
+    &:hover:before {
+        top: -20px;
+        height: 40px;
+    }
+    
+    svg {
+        position: absolute;
+        top: -100px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 200px;
+        pointer-events: none;
+
+        path {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1px
+        }
+    }
+}

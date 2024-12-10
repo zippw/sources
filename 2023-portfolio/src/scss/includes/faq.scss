@@ -1,0 +1,345 @@
+section.faq {
+    $faq-color: var(--bg_light);
+    $faq-border: var(--bg);
+    $faq-border-width: 2px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--pdg);
+    padding: var(--pdg) calc(var(--pdg) * 2) 100px;
+
+    .h1 h1:nth-child(2)>div:last-child:after {
+        content: "_";
+        display: inline;
+        vertical-align: baseline;
+        position: relative;
+        bottom: 0.1em;
+        left: 0.15em;
+        letter-spacing: 0;
+        animation: blink 1s linear infinite;
+    }
+
+    h1 {
+        font-size: 3rem;
+        color: var(--bg);
+        line-height: 110%;
+        @include satoshi;
+
+        &>div {
+            opacity: 0;
+            display: inline;
+        }
+    }
+
+    .faq__container {
+        position: relative;
+        width: 50%;
+        color: var(--bg);
+
+        .controls {
+            position: absolute;
+            width: calc(100% + 40px);
+            left: -20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 2;
+
+            button {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: var(--purple_light);
+                pointer-events: all;
+                cursor: pointer;
+                border-top: none;
+                border-bottom: none;
+                color: var(--bg_light);
+
+                svg {
+                    transition: .3s;
+                }
+            }
+        }
+
+        .corners {
+            left: 0;
+            top: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+
+            span {
+                position: absolute;
+                width: 14px;
+                height: 14px;
+                background: $faq-border;
+                z-index: 2;
+
+                &:after {
+                    position: absolute;
+                    content: "";
+                    width: 10px;
+                    height: 10px;
+                    top: 2px;
+                    left: 2px;
+                    background: #fff;
+                    z-index: 1;
+                }
+
+                &:nth-child(1) {
+                    top: -7px;
+                    left: -7px;
+                }
+
+                &:nth-child(2) {
+                    top: -7px;
+                    right: -7px;
+                }
+
+                &:nth-child(3) {
+                    bottom: -7px;
+                    right: -7px;
+                }
+
+                &:nth-child(4) {
+                    bottom: -7px;
+                    left: -7px;
+                }
+            }
+        }
+
+        .pagin {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 4px;
+            position: absolute;
+            bottom: 0;
+            padding: 0 40px 15px 15px;
+            z-index: 2;
+
+            &_wr {
+                height: 20px;
+                overflow: hidden;
+
+                .slider {
+                    text-align: right;
+                    width: fit-content;
+                    display: flex;
+                    flex-direction: column;
+                    transition: .3s;
+                }
+
+                span {
+                    font-weight: 900;
+                    height: 20px;
+                }
+            }
+
+            &_all {
+                font-weight: 900;
+                height: 20px;
+            }
+        }
+
+        .faq-grid {
+            position: relative;
+            color: var(--faq-color);
+            border: $faq-border-width dashed $faq-border;
+            transform: scale(.8) rotate(5deg) translateY(50px);
+            overflow: hidden;
+            opacity: 0;
+            box-shadow: none;
+            transition: transform 1s $easeInOutQuint,
+                opacity 1s $easeInOutQuint,
+                background-color .3s;
+
+            .faq-item {
+                width: 100%;
+                padding: 40px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+                @include syne;
+
+                h3 {
+                    width: 100%;
+                    font-weight: 900;
+                    font-size: 1.5rem;
+
+                    &>div {
+                        opacity: .2;
+                        transform: translate(0%, 0%) rotateX(90deg) scaleY(1);
+                        text-rendering: optimizeLegibility;
+                        will-change: transform;
+                        opacity: 1;
+                        display: inline-block;
+                        vertical-align: baseline;
+                        transition-timing-function: cubic-bezier(.23, 1, .32, 1);
+                        transition-duration: 0s;
+                        transform-style: preserve-3d;
+                        transform-origin: bottom;
+                    }
+                }
+
+                .answer {
+                    margin-top: 10px;
+                    padding-top: 10px;
+                    display: flex;
+                    opacity: 0;
+                    gap: 15px;
+                    transition: .3s;
+
+                    p {
+                        width: 80%;
+                        font-weight: 600;
+                        font-size: 1rem;
+                    }
+
+                    &>span {
+                        margin-top: .8em;
+                        height: 1px;
+                        width: 30px;
+                        background: var(--faq-color);
+                    }
+                }
+
+                &.big {
+                    position: relative;
+                }
+
+                &.active {
+                    pointer-events: all;
+
+                    .answer {
+                        opacity: 1;
+                    }
+
+                    h3>div {
+                        opacity: 1;
+                        transform: translate(0%, 0) rotateX(0deg) scaleY(1);
+                        transition-delay: calc(7ms * var(--d));
+                        transition-duration: .6s;
+                    }
+                }
+            }
+        }
+    }
+
+    &.show {
+        h1>div {
+            opacity: 1;
+            animation-duration: 0.2s;
+            animation-timing-function: cubic-bezier(0.3, 0.86, 0.36, 0.95);
+            animation-delay: var(--delay);
+            animation-fill-mode: backwards;
+            animation-name: doubleBlink;
+            will-change: opacity;
+        }
+
+        .faq-grid {
+            opacity: 1;
+            transform: none;
+        }
+
+        .corners {
+            opacity: 1;
+        }
+    }
+
+    @keyframes blink {
+
+        0%,
+        49% {
+            opacity: 0
+        }
+
+        50%,
+        99% {
+            opacity: 1
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes doubleBlink {
+        0% {
+            opacity: 0;
+        }
+
+        5% {
+            opacity: 1;
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        15% {
+            opacity: 0;
+        }
+
+        20% {
+            opacity: 1;
+        }
+
+        25% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 1;
+        }
+
+        85% {
+            opacity: 1;
+        }
+
+        90% {
+            opacity: 0;
+        }
+
+        95% {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        flex-direction: column;
+        padding: 20px calc(var(--pdg) * 2) 40px;
+
+        h1 {
+            font-size: 2rem
+        }
+
+        .faq__container {
+            width: 100%;
+
+            .faq-item {
+                h3 {
+                    font-size: 1.2rem!important;
+                }
+                p {
+                    font-size: 0.8rem!important;
+                }
+            }
+        }
+    }
+}

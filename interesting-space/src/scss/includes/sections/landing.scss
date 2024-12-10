@@ -1,0 +1,246 @@
+.pin-spacer {
+    width: 100% !important;
+    display: block !important;
+}
+
+.landing {
+    position: relative;
+    // padding: 0 var(--pdg-l) 0 var(--pdg-l) !important;
+    // overflow: hidden;
+    // width: calc(100% - $margin * 2);
+    // margin: 0 $margin;
+    // display: flex;
+    // align-items: center;
+    height: $vh;
+    display: flex;
+    align-items: center;
+
+    // border-left: 1px solid $text1;
+    // border-right: 1px solid $text1;
+    .wrapper {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+            "a a a c c";
+        grid-gap: 2rem;
+        width: var(--width) !important;
+        padding: 0 var(--pdg-lg) !important;
+        height: fit-content;
+        margin: 0 auto !important;
+    }
+
+    #canvas_art {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    .art {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        aspect-ratio: 1 / 1;
+        grid-area: c;
+        background: transparentize($muted, .8);
+        border: 1px solid $muted;
+        border-radius: $radius;
+        padding: 2rem;
+        transition: background-color .3s;
+
+        .art_wrapper {
+            position: relative;
+            border-radius: $radius;
+            overflow: hidden;
+        }
+
+        video,
+        img {
+            // display: none;
+            pointer-events: none;
+            opacity: 0;
+            width: 100%;
+            transition: .3s;
+        }
+
+        &:hover img,
+        &:hover video {
+            // transform: scale(0.9)
+        }
+    }
+
+    header {
+        width: 100%;
+        position: relative;
+        text-align: justify;
+        display: flex;
+        justify-content: flex-start;
+        // padding: var(--pdg-lg) 50px;
+        padding: var(--pdg-lg);
+        flex-direction: column;
+        align-items: center;
+        grid-area: a;
+        will-change: transform;
+        // overflow: hidden;
+        // height: fit-content !important;
+        // aspect-ratio: 1 / 1;
+        height: 100%;
+        border-radius: $radius;
+        align-self: center;
+        background: $bg1;
+        overflow: hidden;
+
+        .bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .holo {
+            background: linear-gradient(90deg, #e0b0ff, #efffd2 21.81%, #a9fffb 31.42%, #fff9dc 41.38%, #c7ceff 51.68%, #e3bbff 61.29%, #ffe6e1 70.21%, #83c7ff 78.45%, #e0b0ff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h1 {
+            position: relative;
+            display: block;
+            // overflow: hidden;
+
+
+            svg {
+                path {
+                    position: fixed;
+                }
+
+                width: 100%;
+                z-index: 2;
+            }
+
+            // svg:nth-child(1) {
+            //     position: absolute;
+            //     left: 0;
+            //     top: 0;
+            //     z-index: -1;
+            //     filter: blur(5px);
+            //     transform: none!important;
+            //     path {
+            //         fill: $bg1;
+            //     }
+            // }
+        }
+
+        p {
+            margin-top: .8rem;
+            font-size: 1.2rem;
+            color: $text1;
+            width: 100%;
+            line-height: 120%;
+            display: inline-block;
+
+            span.word_wrap {
+                // margin: 0 0.10rem;
+                display: inline-block;
+                position: relative;
+                overflow: hidden;
+            }
+
+            span.char,
+            span.word {
+                display: inline-block;
+            }
+
+            i {
+                font-weight: 500;
+            }
+        }
+
+        .hint {
+            align-items: center;
+            margin-top: 4rem;
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            transition: opacity .5s;
+
+            &.show {
+                opacity: 1;
+            }
+
+            .mouse_container {
+                .box {
+                    position: relative;
+                    height: 28px;
+                    width: 20px;
+                    border: 1px solid $text1;
+                    border-radius: 100px;
+
+                    &:before {
+                        position: absolute;
+                        width: 2px;
+                        height: 5px;
+                        left: calc(50% - 1px);
+                        right: calc(50% - 1px);
+                        top: 5px;
+                        background: $text;
+                        border-radius: 2px;
+                        content: "";
+                        animation: mouse 2s 1s infinite
+                    }
+
+                    @keyframes mouse {
+                        0% {
+                            opacity: 0;
+                            transform: translateY(0);
+                        }
+
+                        20% {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+
+                        50% {
+                            transform: translateY(3px);
+                        }
+
+                        100% {
+                            opacity: 0;
+                            transform: translateY(3px);
+                        }
+                    }
+                }
+            }
+
+            span {
+                background: linear-gradient(90deg,
+                        transparentize($muted1, 1),
+                        $text,
+                        transparentize($muted1, 1));
+                background-repeat: no-repeat;
+                background-size: 80%;
+                overflow: hidden;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparentize($text1, .8);
+                animation: animate 5s $easeInOutQuart infinite;
+
+                @keyframes animate {
+                    0% {
+                        background-position: -500%;
+                    }
+
+                    100% {
+                        background-position: 500%;
+                    }
+                }
+            }
+        }
+    }
+}

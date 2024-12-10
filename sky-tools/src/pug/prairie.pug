@@ -1,0 +1,69 @@
+extends _includes/layout
+
+block vars
+    -const title = 'Абобная страница sky tools';
+    -const page = 'Главная';
+    -const description = 'Много всяких интересных инструментов можно найти на этом сайте';
+    -const site_title = 'SCotL Tools | стартовая страница';
+
+block content
+    include ./_includes/menu
+    include ./_includes/nav
+    include ./_includes/wiki_left.pug
+    include ./_includes/media_viewer.pug
+    .scroller(data-scroll-container)
+        .main__content.wiki
+            .middle
+                h1 How to find the winged light in the Daylight Prairie?
+                .attrs.as_subtitle
+                    .container.red
+                        include ./svg/time-quarter past.svg
+                        em About 30 mins
+                    .container.blue
+                        img(src="img/g_assets/icons/wl.webp" alt="")
+                        em Total: 21
+                h2 BUTTERFLY FIELDS (3)
+                p Butterfly Fields is the first area you come to in Daylight Prairie after you leave the Social Space and fly through the cloud tunnel.
+                .lg.media_img
+                    img.lazy(src="https://cdn.discordapp.com/attachments/975811523303850044/1055930002044100708/image.png" alt="")
+                p The numbers here refer to the pictures above, as the numbers in the video are in a different order.
+                ul
+                    li
+                        span.bold#wl_1 Prairie WL 1: 
+                        | The Child of Light is in the first cave to the left. You need to have found at least one Ancestor Spirit in Daylight Prairie to enter the cave. See the Daylight Prairie page on information where to find them.
+                    li
+                        span.bold#wl_2 Prairie WL 1: 
+                        | The Child of Light is in the first cave to the left. You need to have found at least one Ancestor Spirit in Daylight Prairie to enter the cave. See the Daylight Prairie page on information where to find them.
+                    li
+                        span.bold#wl_3 Prairie WL 1: 
+                        | The Child of Light is in the first cave to the left. You need to have found at least one Ancestor Spirit in Daylight Prairie to enter the cave. See the Daylight Prairie page on information where to find them.
+                .grid
+                    .lg.media_img.no-select
+                        img(src="https://cdn.discordapp.com/attachments/975811523303850044/1055922922830708826/0bc49a12-715a-4bfb-a9ee-67cafdd8da37.png" alt="")
+                    .lg.media_img.no-select
+                        img(src="img/g_assets/wl/StarPrairie1.webp" alt="")
+                    .lg.media_img.no-select
+                        img(src="img/g_assets/wl/StarPrairie1.webp" alt="")
+                    .lg.media_img.no-select
+                        img(src="img/g_assets/wl/StarPrairie1.webp" alt="")
+                    .lg.media_img.no-select
+                        img(src="img/g_assets/wl/StarPrairie1.webp" alt="")
+                    .lg.media_img.no-select
+                        img(src="img/g_assets/wl/StarPrairie1.webp" alt="")
+                    .lg.media_img.no-select
+                        img(src="img/g_assets/wl/StarPrairie1.webp" alt="")
+                    .lg.media_img.no-select
+                        img(src="img/g_assets/wl/StarPrairie1.webp" alt="")
+                p The numbers here refer to the pictures above, as the numbers in the video are in a different order.
+                ul
+                    li
+                        span.bold#wl_4 Prairie WL 1: 
+                        | The Child of Light is in the first cave to the left. You need to have found at least one Ancestor Spirit in Daylight Prairie to enter the cave. See the Daylight Prairie page on information where to find them.
+                    li
+                        span.bold#wl_5 Prairie WL 1: 
+                        | The Child of Light is in the first cave to the left. You need to have found at least one Ancestor Spirit in Daylight Prairie to enter the cave. See the Daylight Prairie page on information where to find them.
+                    li
+                        span.bold#wl_6 Prairie WL 1: 
+                        | The Child of Light is in the first cave to the left. You need to have found at least one Ancestor Spirit in Daylight Prairie to enter the cave. See the Daylight Prairie page on information where to find them.
+                .void
+    script(src='assets/js/light.js?v=' + PACKAGE.version, defer)

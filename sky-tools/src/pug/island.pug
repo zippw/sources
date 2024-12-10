@@ -1,0 +1,19 @@
+extends _includes/layout
+
+block vars
+    -const title = 'Абобная страница sky tools';
+    -const page = 'Главная';
+    -const description = 'Много всяких интересных инструментов можно найти на этом сайте';
+    -const site_title = 'SCotL Tools | стартовая страница';
+
+block content
+    include ./_includes/menu
+    include ./_includes/nav
+    include ./_includes/nav_sec
+    .scroller(data-scroll-container)
+        .main__content.wiki
+            h1 How to find the winged light in the Daylight Prairie?
+            .attrs
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et congue lectus. Nulla a tellus tortor. In tempus dui sodales justo faucibus tincidunt. Pellentesque pretium metus ac nunc pulvinar, lacinia varius enim finibus. Vestibulum tincidunt nibh non ipsum pulvinar, eget consectetur metus dignissim. Sed erat lorem, gravida ut lobortis blandit, sagittis sit amet ante. Vivamus venenatis posuere dui, ut dapibus libero varius id. Proin facilisis nisi in pellentesque consequat. In tortor elit, rhoncus a lorem ut, condimentum ultrices tellus. Donec consectetur nec tellus nec sollicitudin. Fusce mi tellus, dapibus sed erat nec, tincidunt tristique lectus. Ut hendrerit mattis est, vel sagittis risus scelerisque id. Vestibulum congue sed turpis sit amet euismod. Nulla rutrum a arcu ac egestas. Ut risus justo, feugiat ac dui a, gravida sollicitudin dolor. Donec hendrerit congue lorem, nec mollis purus faucibus nec.
+            
+    script(src='assets/js/light.js?v=' + PACKAGE.version, defer)
